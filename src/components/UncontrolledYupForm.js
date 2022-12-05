@@ -1,11 +1,27 @@
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
-const UncontrolledForm = () => {
+const schema = yup.object({
+  firstName: yup
+    .string()
+    .trim()
+    .required("This field is required!")
+    .min(3, "Should be at least 3 characters"),
+  lastName: yup
+    .string()
+    .trim()
+    .required("This field is required!")
+    .min(3, "Should be at least 3 characters"),
+  country: yup.string().required("Select a country"),
+});
+
+const UncontrolledYupForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = (data) => {
     console.log(data);
@@ -14,33 +30,13 @@ const UncontrolledForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <label>
-        First Name{" "}
-        <input
-          type="text"
-          {...register("firstName", {
-            required: "First name is required",
-            minLength: {
-              value: 3,
-              message: "Min length must be not less than 3 characters",
-            },
-          })}
-        ></input>
+        First Name <input type="text" {...register("firstName")}></input>
         {errors.firstName && (
           <div className="error">{errors.firstName.message}</div>
         )}
       </label>
       <label>
-        Last Name{" "}
-        <input
-          type="text"
-          {...register("lastName", {
-            required: "Last name is required",
-            minLength: {
-              value: 3,
-              message: "Min length must be not less than 3 characters",
-            },
-          })}
-        ></input>
+        Last Name <input type="text" {...register("lastName")}></input>
         {errors.lastName && (
           <div className="error">{errors.lastName.message}</div>
         )}
@@ -59,4 +55,4 @@ const UncontrolledForm = () => {
   );
 };
 
-export default UncontrolledForm;
+export default UncontrolledYupForm;
