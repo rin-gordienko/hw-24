@@ -17,7 +17,7 @@ code {
     monospace;
 }
 
-.registration-form {
+.form {
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -33,14 +33,14 @@ code {
   border: #031926 1px solid;
 }
 
-.registration-label {
+.label {
   font-family: Poppins-Regular;
-  font-size: 13px;
+  font-size: 15px;
   color: #031926;
   margin-bottom: 10px;
 }
 
-.registration-input {
+.input {
   height: 25px;
   display: block;
   font-size: 15px;
@@ -60,7 +60,7 @@ code {
   text-decoration: underline;
 }
 
-.registration-submit {
+.submit {
   padding: 5px 15px;
   margin: 15px;
   background-color: #4195a0;
@@ -69,7 +69,7 @@ code {
   border-radius: 7px;
 }
 
-.registration-reset {
+.reset {
   padding: 6px 21px;
   background-color: #77aca2;
   border: #567c75 1px solid;
@@ -77,6 +77,12 @@ code {
   border-radius: 7px;
 }
 
-.registration-title {
+.title {
   text-align: center;
+}
+
+.select-display {
+  display: flex;
+  flex-direction: column;
+  width: auto;
 }

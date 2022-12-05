@@ -52,33 +52,33 @@ const RegistrationForm = () => {
   };
 
   return (
-    <form className="registration-form" onSubmit={handleSubmit} noValidate>
-      <h2 className="registration-title">Registration Form</h2>
-      <label className="registration-label">
+    <form className="form" onSubmit={handleSubmit} noValidate>
+      <h2 className="title">Registration Form</h2>
+      <label className="label">
         Email
         <input
-          className="registration-input"
+          className="input"
           type="email"
           name="email"
           value={emailValue}
           onChange={handleEmailInput}
         />
       </label>
-      <label className="registration-label">
+      <label className="label">
         Password
         <input
-          className="registration-input"
+          className="input"
           type="password"
           name="password"
           value={passwordValue}
           onChange={handlePasswordInput}
         />
       </label>
-      <label className="registration-label">
+      <label className="label">
         {" "}
         Confirm password
         <input
-          className="registration-input"
+          className="input"
           type="password"
           name="confirm"
           value={confirmPassword}
@@ -86,10 +86,10 @@ const RegistrationForm = () => {
         />
       </label>
       {errorMessage && <h4 className="error">{errorMessage}</h4>}
-      <button className="registration-submit" type="submit">
+      <button className="submit" type="submit">
         Sign Up
       </button>
-      <button className="registration-reset" type="reset" onClick={handleReset}>
+      <button className="reset" type="reset" onClick={handleReset}>
         Reset
       </button>
     </form>

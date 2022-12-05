@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 
-const UncontrolledForm = () => {
+const PersonalInfoForm = () => {
   const {
     register,
     handleSubmit,
@@ -12,10 +12,12 @@ const UncontrolledForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label>
+    <form className="form" onSubmit={handleSubmit(onSubmit)}>
+      <h3 className="title">Personal Information</h3>
+      <label className="label">
         First Name{" "}
         <input
+        className="input"
           type="text"
           {...register("firstName", {
             required: "First name is required",
@@ -29,9 +31,10 @@ const UncontrolledForm = () => {
           <div className="error">{errors.firstName.message}</div>
         )}
       </label>
-      <label>
+      <label className="label">
         Last Name{" "}
         <input
+        className="input"
           type="text"
           {...register("lastName", {
             required: "Last name is required",
@@ -45,7 +48,7 @@ const UncontrolledForm = () => {
           <div className="error">{errors.lastName.message}</div>
         )}
       </label>
-      <label>
+      <label className="label select-display">
         Select a country{" "}
         <select {...register("country", { required: true })}>
           <option value="ua">Ukraine</option>
@@ -54,9 +57,9 @@ const UncontrolledForm = () => {
           <option value="au">Australia</option>
         </select>
       </label>
-      <button type="submit">Submit</button>
+      <button className="submit" type="submit">Submit</button>
     </form>
   );
 };
 
-export default UncontrolledForm;
+export default PersonalInfoForm;
