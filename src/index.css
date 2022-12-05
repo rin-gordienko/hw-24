@@ -85,4 +85,11 @@ code {
   display: flex;
   flex-direction: column;
   width: auto;
+  
+}
+
+.select {
+  height: 25px;
+  width: 100%;
+  margin-top: 10px;
 }

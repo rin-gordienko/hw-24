@@ -1,13 +1,13 @@
-// import RegistrationForm from "./components/RegistrationForm";
+import RegistrationForm from "./components/RegistrationForm";
 import PersonalInfoForm from "./components/PersonalInfoForm";
-// import UncontrolledYupForm from "./components/UncontrolledYupForm";
+import PersonalInfoYupForm from "./components/PersonalInfoYupForm";
 
 function App() {
   return (
     <div className="App">
-      {/* <RegistrationForm /> */}
+      <RegistrationForm />
       <PersonalInfoForm />
-      {/* <UncontrolledYupForm /> */}
+      <PersonalInfoYupForm />
     </div>
   );
 }

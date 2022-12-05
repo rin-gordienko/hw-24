@@ -16,7 +16,7 @@ const schema = yup.object({
   country: yup.string().required("Select a country"),
 });
 
-const UncontrolledYupForm = () => {
+const PersonalInfoYupForm = () => {
   const {
     register,
     handleSubmit,
@@ -28,31 +28,32 @@ const UncontrolledYupForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label>
-        First Name <input type="text" {...register("firstName")}></input>
+    <form className="form" onSubmit={handleSubmit(onSubmit)}>
+      <h3 className="title">Personal Information</h3>
+      <label className="label">
+        First Name <input className="input" type="text" {...register("firstName")}></input>
         {errors.firstName && (
           <div className="error">{errors.firstName.message}</div>
         )}
       </label>
-      <label>
-        Last Name <input type="text" {...register("lastName")}></input>
+      <label className="label">
+        Last Name <input className="input" type="text" {...register("lastName")}></input>
         {errors.lastName && (
           <div className="error">{errors.lastName.message}</div>
         )}
       </label>
-      <label>
+      <label className="label select-display">
         Select a country{" "}
-        <select {...register("country", { required: true })}>
+        <select className="select" {...register("country", { required: true })}>
           <option value="ua">Ukraine</option>
           <option value="usa">The United States</option>
           <option value="ko">South Korea</option>
           <option value="au">Australia</option>
         </select>
       </label>
-      <button type="submit">Submit</button>
+      <button className="submit" type="submit">Submit</button>
     </form>
   );
 };
 
-export default UncontrolledYupForm;
+export default PersonalInfoYupForm;
