@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ControlledForm = () => {
+const RegistrationForm = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
@@ -9,11 +9,7 @@ const ControlledForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (
-      emailValue === "" ||
-      passwordValue === "" ||
-      confirmPassword === ""
-    ) {
+    if (emailValue === "" || passwordValue === "" || confirmPassword === "") {
       setErrorMessage("You need to fill all fields");
       return;
     }
@@ -29,7 +25,7 @@ const ControlledForm = () => {
       return;
     }
 
-    console.log({ email: emailValue , password: passwordValue });
+    console.log({ email: emailValue, password: passwordValue });
   };
 
   const handleEmailInput = ({ target: { value } }) => {
@@ -41,8 +37,9 @@ const ControlledForm = () => {
     setPasswordValue(value);
   };
   const handleConfirmPassword = ({ target: { value } }) => {
-    if(errorMessage) {
-      setErrorMessage(""); }
+    if (errorMessage) {
+      setErrorMessage("");
+    }
 
     setConfirmPassword(value);
   };
@@ -55,29 +52,33 @@ const ControlledForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} noValidate>
-      <label>
+    <form className="registration-form" onSubmit={handleSubmit} noValidate>
+      <h2 className="registration-title">Registration Form</h2>
+      <label className="registration-label">
         Email
         <input
+          className="registration-input"
           type="email"
           name="email"
           value={emailValue}
           onChange={handleEmailInput}
         />
       </label>
-      <label>
+      <label className="registration-label">
         Password
         <input
+          className="registration-input"
           type="password"
           name="password"
           value={passwordValue}
           onChange={handlePasswordInput}
         />
       </label>
-      <label>
+      <label className="registration-label">
         {" "}
         Confirm password
         <input
+          className="registration-input"
           type="password"
           name="confirm"
           value={confirmPassword}
@@ -85,12 +86,14 @@ const ControlledForm = () => {
         />
       </label>
       {errorMessage && <h4 className="error">{errorMessage}</h4>}
-      <button type="submit">Sign Up</button>
-      <button type="reset" onClick={handleReset}>
+      <button className="registration-submit" type="submit">
+        Sign Up
+      </button>
+      <button className="registration-reset" type="reset" onClick={handleReset}>
         Reset
       </button>
     </form>
   );
 };
 
-export default ControlledForm;
+export default RegistrationForm;
